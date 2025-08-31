@@ -1,0 +1,9 @@
+.searchBox {
+    display: flex;
+    flex-direction: column;
+    margin-top: 14px;
+}
+
+.searchBoxInput {
+    width: 210px;
+}
