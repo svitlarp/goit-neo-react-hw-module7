@@ -9,17 +9,17 @@ const ContactForm = ({onAdd}) => {
     const handleSubmit = (evt) => {
         evt.preventDefault();
 
-        console.log(evt.target.elements);
-        console.dir(evt.target);
-
         const { name, number } = evt.target.elements;
-        console.log(name.value, number.value);
 
-        onAdd({
-            name: evt.target.elements.name.value,
-            number: evt.target.elements.number.value,
-        })
-        evt.target.reset();
+        if (name.value === "" || number.value === "") {
+            alert("Please fill in both Name and Number");
+        } else {
+            onAdd({
+                name: name.value,
+                number: number.value,
+            });
+            evt.target.reset();
+        }
     };
 
 

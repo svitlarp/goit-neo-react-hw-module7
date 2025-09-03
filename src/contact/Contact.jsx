@@ -1,15 +1,15 @@
 import css from './Contact.module.css';
 
-const Contact = ({data}) => {
+const Contact = ({data: {id, name, number}, onDelete}) => {
     return (
         <div className={css.contactFrame}>
             <div className={css.contact}>
-                <p>{data.name}</p>
-                <p>{data.number}</p>
+                <p>{name}</p>
+                <p>{number}</p>
             </div>
 
             <div className={css.contactBtn}>
-                <button type="button" className={css.contactListDeleteBtn}>Delete</button>
+                <button type="button" className={css.contactListDeleteBtn} onClick={() => {onDelete(id)}}>Delete</button>
             </div>
             
         </div>

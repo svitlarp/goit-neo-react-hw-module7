@@ -10,15 +10,26 @@ function App() {
   const [contacts, setContacts] = useState(initialContactList);
 
   const addContact = (newContact) => {
-    setContacts(newContact);
+    // setContacts([...contacts, newContact]);
+    setContacts((prevContacts) => {
+      return [...prevContacts, newContact]
+    });
   }
+
+  const deleteContact = (contactId) => {
+    setContacts(contacts.filter(contact => contact.id !== contactId));
+  }
+
+  // const visibleTask = tasks.filter((task) =>
+  //   task.text.toLowerCase().includes(filter.toLowerCase())
+  // );
 
   return (
     <>
       <h1>PhoneBook</h1>
       <ContactForm onAdd={addContact} />
       <SearchBox />
-      <ContactList contactList={contacts} />
+      <ContactList contacts={contacts} onDelete={deleteContact} />
     </>
   )
 }
