@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import ContactForm from './contact-form/ContactForm';
-import ContactList from './contact-list/ContactList';
+import ContactForm from './components/contact-form/ContactForm.jsx';
+import ContactList from './components/contact-list/ContactList.jsx';
+import SearchBox from './components/search-box/SearchBox.jsx';
 import initialContactList from './contactList.json';
-import SearchBox from './search-box/SearchBox';
+
 
 
 function App() {

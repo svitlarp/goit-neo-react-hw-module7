@@ -1,4 +1,4 @@
-import Contact from "../contact/Contact";
+import Contact from "../contact/Contact.jsx";
 import css from "./ContactList.module.css";
 
 
