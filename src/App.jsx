@@ -8,9 +8,9 @@ import SearchBox from './search-box/SearchBox';
 
 function App() {
   const [contacts, setContacts] = useState(initialContactList);
+  const [filter, setFilter] = useState("");
 
   const addContact = (newContact) => {
-    // setContacts([...contacts, newContact]);
     setContacts((prevContacts) => {
       return [...prevContacts, newContact]
     });
@@ -20,20 +20,18 @@ function App() {
     setContacts(contacts.filter(contact => contact.id !== contactId));
   }
 
-  // const visibleTask = tasks.filter((task) =>
-  //   task.text.toLowerCase().includes(filter.toLowerCase())
-  // );
+  const filteredContacts = contacts.filter(contact => contact.name.toLowerCase().includes(filter.toLowerCase()));
+
 
   return (
     <>
       <h1>PhoneBook</h1>
+      <p>{filter}</p>
       <ContactForm onAdd={addContact} />
-      <SearchBox />
-      <ContactList contacts={contacts} onDelete={deleteContact} />
+      <SearchBox value={filter} onFilter={setFilter} />
+      <ContactList contacts={filteredContacts} onDelete={deleteContact} />
     </>
   )
 }
 
 export default App
-
-// import initialTasks from './tasks.json';

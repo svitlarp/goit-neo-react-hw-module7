@@ -1,5 +1,6 @@
 import { useId } from "react";
 import css from './ContactForm.module.css';
+import { nanoid } from "nanoid";
 
 
 const ContactForm = ({onAdd}) => {
@@ -15,6 +16,7 @@ const ContactForm = ({onAdd}) => {
             alert("Please fill in both Name and Number");
         } else {
             onAdd({
+                id: nanoid(),
                 name: name.value,
                 number: number.value,
             });
